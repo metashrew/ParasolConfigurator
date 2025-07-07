@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #root {
@@ -14,9 +14,13 @@
 .app-container {
   display: flex;
   box-sizing: border-box;
-  gap: 10px;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+h2 {
+  margin-bottom: 1rem;
 }
 
 .app-container > div {
@@ -29,10 +33,28 @@
 }
 
 .settings-container {
-  width: 400px;
-  padding: 20px;
+  width: 0px;
   box-sizing: border-box;
   border-left: 1px solid gray;
+  transition: 500ms;
+}
+
+.settingsOpen {
+  width: 400px;
+}
+
+.settings-btn {
+  position: absolute;
+  border: 1px solid gray;
+  border-right: 1px solid white;
+  top: 30px;
+  right: -1px;
+  width: 35px;
+  height: 3rem;
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 900px) {

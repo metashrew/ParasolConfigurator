@@ -1,0 +1,10 @@
+.slider {
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #111;
+}
+
+input[type=text] {
+    padding: 10px;
+}
