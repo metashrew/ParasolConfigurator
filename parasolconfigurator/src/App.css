@@ -23,9 +23,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.app-container > div {
-}
-
 .canvas-container {
   flex: 1;
   position: relative;
@@ -55,6 +52,14 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.drag-area {
+  width: 10px;
+  background-color: #eee;
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  align-content: center;
 }
 
 @media screen and (max-width: 900px) {
