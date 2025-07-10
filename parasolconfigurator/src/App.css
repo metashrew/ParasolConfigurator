@@ -19,39 +19,10 @@
   overflow: hidden;
 }
 
-h2 {
-  margin-bottom: 1rem;
-}
-
 .canvas-container {
   flex: 1;
   position: relative;
   min-width: 0;
-}
-
-.settings-container {
-  width: 0px;
-  box-sizing: border-box;
-  border-left: 1px solid gray;
-  transition: 500ms;
-}
-
-.settingsOpen {
-  width: 400px;
-}
-
-.settings-btn {
-  position: absolute;
-  border: 1px solid gray;
-  border-right: 1px solid white;
-  top: 30px;
-  right: -1px;
-  width: 35px;
-  height: 3rem;
-  border-radius: 5px 0px 0px 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .drag-area {
