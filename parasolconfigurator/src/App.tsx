@@ -36,10 +36,10 @@ function App() {
   return (
     <PanelGroup direction='horizontal'>
         <Panel defaultSize={75}>
-          <Canvas>
+          <Canvas resize={{debounce: 0}}>
             <Environment preset='sunset'/>
             <gridHelper args={[10,10, 0x000000]}/>
-            <OrbitControls enableZoom={false} target={[0,2,0]}/>
+            <OrbitControls enablePan={false} target={[0,2,0]}/>
             {/* <ambientLight intensity={0.1} />
             <directionalLight position={[-5,5,5]} /> */}
             <Foot size={footSize} />
