@@ -33,6 +33,10 @@
   align-content: center;
 }
 
+.shadow {
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (max-width: 900px) {
   .app-container {
     display: block;

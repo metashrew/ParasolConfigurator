@@ -26,3 +26,26 @@ input[type=text] {
   margin: 20px;
   --maincolor: #ff7300;
 }
+
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+
+.color-list div {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  transition: 100ms;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.color-list div:hover {
+  transform: scale(1.05);
+}
+
+.color-list > .selected {
+  border-radius: 5px;
+}

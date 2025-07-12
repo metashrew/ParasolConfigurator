@@ -4,6 +4,7 @@ import type { ParasolSize } from '../types/Size'
 import './RadioSelector.css'
 import { Color } from 'three'
 import RadioSelectItem from './RadioSelectItem'
+import ColorSelectItem from './ColorSelectItem'
 
 type Props = {
   setParasolSize: Function
@@ -22,6 +23,8 @@ export default function SettingsMenu({setFootSize, setParasolSize, setParasolCol
     new Color().setHex(0xFF0000),
     new Color().setHex(0x00FF00),
     new Color().setHex(0x0000FF),
+    new Color().setHex(0x005511),
+    new Color().setHex(0x011055),
   ]
 
   return (
@@ -29,20 +32,19 @@ export default function SettingsMenu({setFootSize, setParasolSize, setParasolCol
       <h2>parasol</h2>
       <h3>grootte</h3>
       {/* <RadioSelector<ParasolSize> options={['M','L','XL']} stateValue={parasol.size} stateSetter={setParasolSize} /> */}
-      <div className='radio-list'>
+      <div className='radio-list shadow'>
         {sizes.map((option) => <RadioSelectItem<ParasolSize> option={option} stateValue={parasol.size} stateSetter={setParasolSize}/>)}
       </div>
       <h3>kleur</h3>
       <div className='color-list'>
         {colors.map((color) => 
-          <RadioSelectItem<Color> option={color} stateValue={parasol.color} stateSetter={setParasolColor}>
-            <span style={{backgroundColor: "#" + color.getHexString()}}></span>
-          </RadioSelectItem>
+          <ColorSelectItem option={color} stateValue={parasol.color} stateSetter={setParasolColor}>
+          </ColorSelectItem>
         )}
       </div>
       <h2>voet</h2>
       <h3>diameter</h3>
-      <input type="text" name="footsize" id="footsize" defaultValue="50cm" onChange={e => setFootSize(e.target.value)} />
+      <input className='shadow' type="text" name="footsize" id="footsize" defaultValue="50cm" onChange={e => setFootSize(e.target.value)} />
     </div>
   )
 }
