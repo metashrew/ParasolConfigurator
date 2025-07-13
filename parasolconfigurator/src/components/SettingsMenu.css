@@ -30,22 +30,26 @@ input[type=text] {
 .color-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 
 .color-list div {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   transition: 100ms;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 .color-list div:hover {
-  transform: scale(1.05);
+  transform: scale(1.20);
+  border-radius: 10%;
 }
 
 .color-list > .selected {
-  border-radius: 5px;
+  border-radius: 10%;
 }

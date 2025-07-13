@@ -8,7 +8,7 @@ type Props = {
 
 export default function ColorSelectItem({ option, stateValue, stateSetter}: Props) {
   return (
-    <div className={(stateValue.getHex() == option.getHex() ? "selected" : undefined) + " shadow"} style={{backgroundColor: '#' + option.getHexString()}} onClick={e => stateSetter(option)}> 
+    <div className={(stateValue.getHex() == option.getHex() ? "selected" : undefined)} style={{backgroundColor: '#' + option.getHexString()}} onClick={e => stateSetter(option)}> 
     </div>
   )
 }
