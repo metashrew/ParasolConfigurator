@@ -51,7 +51,7 @@ p {
 
 input[type=number] {
   height: 2rem;
-  max-width: 4ch;
+  max-width: 8ch;
   /* border: 2px solid var(--maincolor); */
   border: none;
   box-sizing: border-box;
@@ -68,6 +68,24 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.input-row > span {
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  max-width: 10%;
+}
+
+.input-row > div {
+  flex-grow: 0;
+  min-width: 0;
+}
+
 .metric-input {
   display: flex;
   width: fit-content;
@@ -81,4 +99,8 @@ input::-webkit-inner-spin-button {
   color: white;
   align-content: center;
   padding: 0px 10px;
+}
+
+.metric-input span {
+  flex-shrink: 1;
 }

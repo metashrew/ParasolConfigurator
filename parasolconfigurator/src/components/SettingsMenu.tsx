@@ -60,10 +60,12 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
             </ColorSelectItem>
           )}
         </div>
+        <p>open/dicht</p>
+        <button></button>
       </div>
       <div className='settings-group'>
         <h2>voet</h2>
-        <div style={{display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px"}}>
+        <div className='input-row'>
           <span>diameter</span>
           <div className='metric-input'>
             <input className='shadow' type="number" name="footsize" id="footsize" min={30} max={60} defaultValue={footSize} maxLength={6} onBlur={handleSetFootSize}/>

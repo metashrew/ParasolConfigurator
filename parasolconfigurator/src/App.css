@@ -42,11 +42,5 @@
 }
 
 @media screen and (max-width: 900px) {
-  .app-container {
-    display: block;
-  }
-
-  .canvas-container {
-    
-  }
+  
 }
