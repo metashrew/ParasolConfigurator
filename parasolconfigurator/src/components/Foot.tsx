@@ -9,20 +9,14 @@ export default function Foot({size, height = 20}: Props) {
   const pipeRadius = 0.06
   const realSize = size / 100
 
-  const circleRadius = realSize
-  const shape: Shape = new Shape()
-    .moveTo( 0, circleRadius )
-    .quadraticCurveTo( circleRadius, circleRadius, circleRadius, 0 )
-    .quadraticCurveTo( circleRadius, - circleRadius, 0, - circleRadius )
-    .quadraticCurveTo( - circleRadius, - circleRadius, - circleRadius, 0 )
-    .quadraticCurveTo( - circleRadius, circleRadius, 0, circleRadius );
+  const circleRadius = realSize;
 
   const options: ExtrudeGeometryOptions = {
     depth: 0.1
   }
 
   return (
-    <>
+    <group>
       <mesh position={[0,0.10,0]}>
         <cylinderGeometry args={[realSize - 0.10, realSize, 0.10, height]}/>
         <meshStandardMaterial roughness={0.2}/>
@@ -31,6 +25,6 @@ export default function Foot({size, height = 20}: Props) {
         <cylinderGeometry args={[pipeRadius, pipeRadius, 0.3]}/>
         <meshStandardMaterial roughness={0.2}/>
       </mesh>
-    </>
+    </group>
   )
 }

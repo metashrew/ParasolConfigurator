@@ -1,12 +1,16 @@
+import { GLTFLoader } from "three/examples/jsm/Addons.js"
 import type { Parasol } from "../types/Parasol"
 
 type Props = {
-    parasolSettings: Parasol
+    parasol: Parasol
 }
 
-export default function Parasol({parasolSettings}: Props) {
+export default function ParasolObject({parasol}: Props) {
+  // const gltf = useLoader(GLTFLoader, )
+
+
   let scale = 1
-  switch (parasolSettings.size) {
+  switch (parasol.size) {
     case 'M':
       scale = 1
       break;
@@ -24,7 +28,7 @@ export default function Parasol({parasolSettings}: Props) {
     <>
       <mesh position={[0,0,2]} scale={scale}>
         <boxGeometry/>
-        <meshStandardMaterial color={parasolSettings.color}/>
+        <meshStandardMaterial color={parasol.color}/>
       </mesh>
     </>
   )
