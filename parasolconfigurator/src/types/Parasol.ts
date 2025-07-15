@@ -4,4 +4,5 @@ import type { ParasolSize } from "./Size"
 export type Parasol = {
     size: ParasolSize
     color: Color
+    isOpen: boolean
 }

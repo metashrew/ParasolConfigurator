@@ -9,8 +9,9 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0x0000FF),
             new Color().setHex(0x005511),
             new Color().setHex(0x011055),
+            new Color().setHex(0xFFFFFF),
         ],
         sizes: ['M', 'L', 'XL'],
-        parasolpath: "./assets/models/parasol"
+        parasolpath: "./src/assets/parasol"
     }
 ]

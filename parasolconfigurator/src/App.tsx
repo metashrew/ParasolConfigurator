@@ -3,28 +3,37 @@ import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { PanelGroup, Panel, PanelResizeHandle } from 'react-resizable-panels'
 import SettingsMenu from './components/SettingsMenu'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Foot from './components/Foot'
 import type { Parasol } from './types/Parasol'
 import ParasolObject from "./components/ParasolObject" 
 import { parasols } from './data/data'
+import Floor from './components/Floor'
 
 function App() {
   const parasolSettings = parasols[0]
   const [footSize, setFootSize] = useState(50);
-  const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0]});
-  
+  const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0], isOpen: true});
+
+  const animateParasol = () => {
+    setParasol({...parasol, isOpen: !parasol.isOpen})
+  }
+
   return (
     <PanelGroup direction={'horizontal'}>
-        <Panel defaultSize={75}>
+        <Panel defaultSize={75} className='relative'>
+          <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={animateParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
           <Canvas resize={{debounce: 0}}>
             <Environment preset='sunset'/>
             {/* <gridHelper args={[10,10, 0x000000]}/> */}
-            <OrbitControls enablePan={false} target={[0,2,0]}/>
-            {/* <ambientLight intensity={0.1} />
-            <directionalLight position={[-5,5,5]} /> */}
+            <OrbitControls enablePan={false} target={[0,1,0]}/>
+            {/* <ambientLight intensity={0} /> */}
+            {/* <directionalLight position={[-5,5,5]} intensity={1} /> */}
             <Foot size={footSize} />
-            <ParasolObject parasol={parasol} />
+            <Suspense>
+              <ParasolObject parasol={parasol} path={parasolSettings.parasolpath}/>
+            </Suspense>
+            <Floor/>
           </Canvas>
         </Panel>
         <PanelResizeHandle className='drag-area'>

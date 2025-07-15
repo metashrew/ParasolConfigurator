@@ -1,35 +1,41 @@
-import { GLTFLoader } from "three/examples/jsm/Addons.js"
 import type { Parasol } from "../types/Parasol"
+import { LoopOnce, MeshStandardMaterial } from "three"
+import { useGLTF, useAnimations } from "@react-three/drei"
+import { act, useEffect } from "react"
+import { useGraph } from "@react-three/fiber"
 
 type Props = {
     parasol: Parasol
+    path: string
 }
 
-export default function ParasolObject({parasol}: Props) {
-  // const gltf = useLoader(GLTFLoader, )
+export default function ParasolObject({parasol, path}: Props) {
+  const gltf = useGLTF(`${path}-${parasol.size}.glb`)
+  const { ref, actions } = useAnimations(gltf.animations)
+  console.log(actions)
+
+  useEffect(()=>{
+    const action = actions["OpenClose"]
+    if (action) {
+      action.clampWhenFinished = true
+      action.paused = false
+      action.timeScale = -action.timeScale
+      action.setLoop(LoopOnce, 0)
+      action.play()
+    }
+  },[parasol.isOpen])
 
 
-  let scale = 1
-  switch (parasol.size) {
-    case 'M':
-      scale = 1
-      break;
-    case 'L':
-      scale = 1.5
-      break;
-    case 'XL':
-      scale = 2
-      break;
-    default:
-      break;
+  const mat = gltf.materials["Parasol_fabric"] as MeshStandardMaterial
+  if (mat != null) {
+    mat.metalness = 0
+    mat.roughness = .8
+    mat.color = parasol.color
   }
 
   return (
-    <>
-      <mesh position={[0,0,2]} scale={scale}>
-        <boxGeometry/>
-        <meshStandardMaterial color={parasol.color}/>
-      </mesh>
-    </>
+      <>
+        <primitive object={gltf.scene} ref={ref} />
+      </>
   )
 }

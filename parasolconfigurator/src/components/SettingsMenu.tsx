@@ -26,8 +26,6 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
   }
 
   const setParasolSize = (index: number) => {
-    console.log("im getting called")
-    console.log(index)
     setParasol({
       ...parasol,
       size: settings.sizes[index]
@@ -51,17 +49,15 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
         <h2>parasol</h2>
         <p>grootte</p>
         <div className='radio-list shadow'>
-          {settings.sizes.map((option, i) => <RadioSelectItem<ParasolSize> option={option} stateValue={parasol.size} stateSetter={() => setParasolSize(i)}/>)}
+          {settings.sizes.map((option, i) => <RadioSelectItem<ParasolSize> key={i} option={option} stateValue={parasol.size} stateSetter={() => setParasolSize(i)}/>)}
         </div>
         <p>kleur</p>
         <div className='color-list'>
           {settings.colors.map((color, i) => 
-            <ColorSelectItem option={color} stateValue={parasol.color} stateSetter={() => setParasolColor(i)}>
+            <ColorSelectItem key={i} option={color} stateValue={parasol.color} stateSetter={() => setParasolColor(i)}>
             </ColorSelectItem>
           )}
         </div>
-        <p>open/dicht</p>
-        <button></button>
       </div>
       <div className='settings-group'>
         <h2>voet</h2>
