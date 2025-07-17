@@ -31,7 +31,7 @@ function App() {
             {/* <directionalLight position={[-5,5,5]} intensity={1} /> */}
             <Foot size={footSize} />
             <Suspense>
-              <ParasolObject parasol={parasol} path={parasolSettings.parasolpath}/>
+              <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>
             <Floor/>
           </Canvas>

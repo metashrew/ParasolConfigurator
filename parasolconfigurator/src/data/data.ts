@@ -3,15 +3,15 @@ import type { ParasolSettings } from "../types/ParasolSettings";
 
 export const parasols: Array<ParasolSettings> = [
     {
-        colors: [
-            new Color().setHex(0xFFDD00),
-            new Color().setHex(0x00FF00),
-            new Color().setHex(0x0000FF),
-            new Color().setHex(0x005511),
-            new Color().setHex(0x011055),
-            new Color().setHex(0xFFFFFF),
-        ],
         sizes: ['M', 'L', 'XL'],
-        parasolpath: "./src/assets/parasol"
+        colors: [
+            new Color().setHex(0xFFFFFF),
+            new Color().setHex(0xFFCC00),
+            new Color().setHex(0x008844),
+            new Color().setHex(0x0CAB83),
+            new Color().setHex(0x330088),
+            new Color().setHex(0xDD1144),
+        ],
+        modelpath: "./src/assets/parasol"
     }
 ]

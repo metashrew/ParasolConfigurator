@@ -12,8 +12,8 @@ type Props = {
 export default function ParasolObject({parasol, path}: Props) {
   const gltf = useGLTF(`${path}-${parasol.size}.glb`)
   const { ref, actions } = useAnimations(gltf.animations)
-  console.log(actions)
-
+  console.log(gltf)
+  
   useEffect(()=>{
     const action = actions["OpenClose"]
     if (action) {
