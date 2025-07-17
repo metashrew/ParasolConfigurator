@@ -1,7 +1,7 @@
 import type { Parasol } from "../types/Parasol"
 import { LoopOnce, MeshStandardMaterial } from "three"
 import { useGLTF, useAnimations } from "@react-three/drei"
-import { act, useEffect } from "react"
+import { act, useEffect, useMemo } from "react"
 import { useGraph } from "@react-three/fiber"
 
 type Props = {
@@ -11,11 +11,24 @@ type Props = {
 
 export default function ParasolObject({parasol, path}: Props) {
   const gltf = useGLTF(`${path}-${parasol.size}.glb`)
-  const { ref, actions } = useAnimations(gltf.animations)
-  console.log(gltf)
+  const { ref, actions, mixer, names, clips } = useAnimations(gltf.animations, gltf.scene)
+  console.log('----- rerender start -----')
+  // console.log(`${parasol.size}`)
+  // console.log(ref)
+  // console.log(actions)
+  // console.log(clips)
+  // console.log(names)
+  
   
   useEffect(()=>{
-    const action = actions["OpenClose"]
+    let action = mixer.existingAction("OpenClose")
+    if (action == null) action = actions["OpenClose"]
+    else {
+      action.enabled = false
+      action = actions["OpenClose"]
+    }
+    console.log(mixer)
+    console.log(gltf)
     if (action) {
       action.clampWhenFinished = true
       action.paused = false

@@ -9,6 +9,7 @@ import type { Parasol } from './types/Parasol'
 import ParasolObject from "./components/ParasolObject" 
 import { parasols } from './data/data'
 import Floor from './components/Floor'
+import { BoxGeometry } from 'three'
 
 function App() {
   const parasolSettings = parasols[0]
@@ -23,14 +24,14 @@ function App() {
     <PanelGroup direction={'horizontal'}>
         <Panel defaultSize={75} className='relative'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={animateParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
-          <Canvas resize={{debounce: 0}}>
+          <Canvas resize={{debounce: 0}} shadows>
             <Environment preset='sunset'/>
             {/* <gridHelper args={[10,10, 0x000000]}/> */}
             <OrbitControls enablePan={false} target={[0,1,0]}/>
             {/* <ambientLight intensity={0} /> */}
-            {/* <directionalLight position={[-5,5,5]} intensity={1} /> */}
+            <directionalLight position={[-5,5,5]} intensity={1} />
             <Foot size={footSize} />
-            <Suspense>
+            <Suspense fallback={<boxGeometry/>}>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>
             <Floor/>
