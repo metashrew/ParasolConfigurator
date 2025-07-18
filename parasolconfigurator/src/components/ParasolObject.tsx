@@ -10,25 +10,12 @@ type Props = {
 }
 
 export default function ParasolObject({parasol, path}: Props) {
-  const gltf = useGLTF(`${path}-${parasol.size}.glb`)
-  const { ref, actions, mixer, names, clips } = useAnimations(gltf.animations, gltf.scene)
-  console.log('----- rerender start -----')
-  // console.log(`${parasol.size}`)
-  // console.log(ref)
-  // console.log(actions)
-  // console.log(clips)
-  // console.log(names)
-  
+  const gltf = useGLTF(`${path}-all.glb`)
+  const { ref, actions } = useAnimations(gltf.animations)
+  console.log(gltf)
   
   useEffect(()=>{
-    let action = mixer.existingAction("OpenClose")
-    if (action == null) action = actions["OpenClose"]
-    else {
-      action.enabled = false
-      action = actions["OpenClose"]
-    }
-    console.log(mixer)
-    console.log(gltf)
+    const action = actions["OpenClose"]
     if (action) {
       action.clampWhenFinished = true
       action.paused = false
@@ -37,6 +24,13 @@ export default function ParasolObject({parasol, path}: Props) {
       action.play()
     }
   },[parasol.isOpen])
+
+  useEffect(()=>{
+    gltf.scene.children.forEach(model => {
+      if (model.name == `pole${parasol.size}}`) model.visible = true
+      else model.visible = false
+    })
+  }, [parasol.size])
 
 
   const mat = gltf.materials["Parasol_fabric"] as MeshStandardMaterial
