@@ -1,8 +1,7 @@
 import type { Parasol } from "../types/Parasol"
 import { LoopOnce, MeshStandardMaterial } from "three"
 import { useGLTF, useAnimations } from "@react-three/drei"
-import { act, useEffect, useMemo } from "react"
-import { useGraph } from "@react-three/fiber"
+import { useEffect } from "react"
 
 type Props = {
     parasol: Parasol
@@ -12,7 +11,6 @@ type Props = {
 export default function ParasolObject({parasol, path}: Props) {
   const gltf = useGLTF(`${path}-all.glb`)
   const { ref, actions } = useAnimations(gltf.animations)
-  console.log(gltf)
   
   useEffect(()=>{
     const action = actions["OpenClose"]
@@ -27,7 +25,11 @@ export default function ParasolObject({parasol, path}: Props) {
 
   useEffect(()=>{
     gltf.scene.children.forEach(model => {
-      if (model.name == `pole${parasol.size}}`) model.visible = true
+      console.log(model)
+      if (model.name === `pole${parasol.size}`) {
+        console.log("HELLO????")
+        model.visible = true
+      }
       else model.visible = false
     })
   }, [parasol.size])
