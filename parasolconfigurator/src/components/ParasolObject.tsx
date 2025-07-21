@@ -12,6 +12,7 @@ export default function ParasolObject({parasol, path}: Props) {
   const gltf = useGLTF(`${path}-all.glb`)
   const { ref, actions } = useAnimations(gltf.animations)
   
+  //play the animation when open/close state changes
   useEffect(()=>{
     const action = actions["OpenClose"]
     if (action) {
@@ -23,18 +24,18 @@ export default function ParasolObject({parasol, path}: Props) {
     }
   },[parasol.isOpen])
 
+  //only show the model that matches the name of the current size
   useEffect(()=>{
     gltf.scene.children.forEach(model => {
       console.log(model)
       if (model.name === `pole${parasol.size}`) {
-        console.log("HELLO????")
         model.visible = true
       }
       else model.visible = false
     })
   }, [parasol.size])
 
-
+  //change the color when state changes
   const mat = gltf.materials["Parasol_fabric"] as MeshStandardMaterial
   if (mat != null) {
     mat.metalness = 0

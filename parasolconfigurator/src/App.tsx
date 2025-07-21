@@ -23,7 +23,7 @@ function App() {
   return (
     <PanelGroup direction={'horizontal'}>
         <Panel defaultSize={75} className='relative'>
-          <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={animateParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
+          <button className={('floating-button' + (parasol.isOpen ? '' : ' open'))} onClick={animateParasol}>{parasol.isOpen ? "Open" : "Close"}</button>
           <Canvas resize={{debounce: 0}} shadows>
             <Environment preset='sunset'/>
             {/* <gridHelper args={[10,10, 0x000000]}/> */}
@@ -31,7 +31,7 @@ function App() {
             {/* <ambientLight intensity={0} /> */}
             <directionalLight position={[-5,5,5]} intensity={1} />
             <Foot size={footSize} />
-            <Suspense fallback={<boxGeometry/>}>
+            <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>
             <Floor/>
