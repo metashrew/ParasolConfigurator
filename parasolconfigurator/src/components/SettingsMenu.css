@@ -103,3 +103,7 @@ input::-webkit-inner-spin-button {
 .metric-input span {
   flex-shrink: 1;
 }
+
+.metric-input.error {
+  color: red;
+}

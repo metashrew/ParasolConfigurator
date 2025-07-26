@@ -2,10 +2,9 @@ import './SettingsMenu.css'
 import type { Parasol } from '../types/Parasol'
 import type { ParasolSize } from '../types/Size'
 import './RadioSelector.css'
-import { Color } from 'three'
 import RadioSelectItem from './RadioSelectItem'
 import ColorSelectItem from './ColorSelectItem'
-import { useState, type ChangeEvent, type ChangeEventHandler, type Dispatch, type InputEvent, type SetStateAction } from 'react'
+import React, { type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
 import type { ParasolSettings } from '../types/ParasolSettings'
 
 type Props = {
@@ -17,6 +16,10 @@ type Props = {
 }
 
 export default function SettingsMenu({setFootSize, footSize, setParasol, parasol, settings}: Props) {
+
+  const errorStyle: CSSProperties = {
+    color: "red"
+  }
 
   const setParasolColor = (index: number) => {
     setParasol({
@@ -33,14 +36,25 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
   }
 
   const handleSetFootSize = (e: ChangeEvent<HTMLInputElement>) => {
-    let input = parseInt(e.target.value)
-    if (isNaN(input)) {
-      e.target.value = String(footSize)
-      input = footSize
+    if (e.currentTarget.validity.valid) {
+      setFootSize(Number(e.target.value))
     }
-    if (isNaN(input) || input < 30) e.target.value = "30"
-    if (input > 60) e.target.value = "60"
-    setFootSize(Number(e.target.value))
+  }
+
+  const validateFootsize = (e: React.FocusEvent<HTMLInputElement>) => {
+    const validation = e.currentTarget.validity
+    if(!validation.valid) {
+      if(validation.rangeUnderflow) {
+        e.currentTarget.value = e.currentTarget.min
+      }
+      if(validation.rangeOverflow) {
+        e.currentTarget.value = e.currentTarget.max
+      }
+      if(validation.valueMissing) {
+        e.currentTarget.value = e.currentTarget.min
+      }
+      setFootSize(Number(e.target.value))
+    }
   }
 
   return (
@@ -63,8 +77,8 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
         <h2>voet</h2>
         <div className='input-row'>
           <span>diameter</span>
-          <div className='metric-input'>
-            <input className='shadow' type="number" name="footsize" id="footsize" min={30} max={60} defaultValue={footSize} maxLength={6} onBlur={handleSetFootSize}/>
+          <div className='metric-input' style={errorStyle}>
+            <input className='shadow' type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={footSize} maxLength={6} onChange={handleSetFootSize} onBlur={validateFootsize}/>
             <div>cm</div>
           </div>
         </div>

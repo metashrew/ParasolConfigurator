@@ -16,7 +16,7 @@ export default function Foot({size, height = 0.075}: Props) {
   return (
     <group>
       <mesh position={[0,height/2,0]}>
-        <cylinderGeometry args={[realSize - slant, realSize, height, 20]}/>
+        <cylinderGeometry args={[realSize - slant, realSize, height, 32]}/>
         {material}
       </mesh>
       <mesh position={[0,0.10,0]}>

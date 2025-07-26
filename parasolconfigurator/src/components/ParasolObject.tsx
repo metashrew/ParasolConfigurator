@@ -27,7 +27,6 @@ export default function ParasolObject({parasol, path}: Props) {
   //only show the model that matches the name of the current size
   useEffect(()=>{
     gltf.scene.children.forEach(model => {
-      console.log(model)
       if (model.name === `pole${parasol.size}`) {
         model.visible = true
       }
