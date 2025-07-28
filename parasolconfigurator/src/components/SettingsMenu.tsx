@@ -6,6 +6,7 @@ import RadioSelectItem from './RadioSelectItem'
 import ColorSelectItem from './ColorSelectItem'
 import React, { type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
 import type { ParasolSettings } from '../types/ParasolSettings'
+import ValueInput from './ValueInput'
 
 type Props = {
   setFootSize: Dispatch<SetStateAction<number>>
@@ -51,7 +52,7 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
         e.currentTarget.value = e.currentTarget.max
       }
       if(validation.valueMissing) {
-        e.currentTarget.value = e.currentTarget.min
+        e.currentTarget.value = footSize.toString()
       }
       setFootSize(Number(e.target.value))
     }
@@ -77,10 +78,15 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
         <h2>voet</h2>
         <div className='input-row'>
           <span>diameter</span>
-          <div className='metric-input' style={errorStyle}>
-            <input className='shadow' type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={footSize} maxLength={6} onChange={handleSetFootSize} onBlur={validateFootsize}/>
+          {/* <div className='metric-input' style={errorStyle}>
+            <input className='shadow' type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={footSize} maxLength={6} 
+              onChange={handleSetFootSize} 
+              onBlur={validateFootsize}
+              onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
+            />
             <div>cm</div>
-          </div>
+          </div> */}
+          <ValueInput value={footSize} setter={setFootSize} postfix='cm'/>
         </div>
       </div>
     </div>

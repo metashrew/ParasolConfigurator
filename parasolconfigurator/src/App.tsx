@@ -17,7 +17,6 @@ function App() {
   const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0], isOpen: true});
 
   const width = useWindowWidth({wait: 1})
-  console.log(width)
 
   const animateParasol = () => {
     setParasol({...parasol, isOpen: !parasol.isOpen})
@@ -30,9 +29,7 @@ function App() {
           <Canvas resize={{debounce: 0}} shadows>
             <color attach="background" args={['#eee']} />
             <Environment preset='sunset'/>
-            {/* <gridHelper args={[10,10, 0x000000]}/> */}
             <OrbitControls enablePan={false} target={[0,1,0]}/>
-            {/* <ambientLight intensity={0} /> */}
             <directionalLight position={[-5,5,5]} intensity={1} />
             <Foot size={footSize} />
             <Suspense>

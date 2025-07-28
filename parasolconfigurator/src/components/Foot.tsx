@@ -20,7 +20,7 @@ export default function Foot({size, height = 0.075}: Props) {
         {material}
       </mesh>
       <mesh position={[0,0.10,0]}>
-        <cylinderGeometry args={[pipeRadius, pipeRadius, 0.1]}/>
+        <cylinderGeometry args={[pipeRadius, pipeRadius, 0.2]}/>
         {material}
       </mesh>
     </group>

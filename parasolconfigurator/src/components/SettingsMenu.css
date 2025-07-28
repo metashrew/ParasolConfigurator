@@ -9,10 +9,6 @@ p {
   font-weight: 400;
 }
 
-.settings {
-  scrollbar-width: 'norma';
-}
-
 .settings-container {
   margin: 10px;
 }
@@ -82,7 +78,7 @@ input::-webkit-inner-spin-button {
 .input-row > span {
   text-overflow: ellipsis;
   flex-shrink: 1;
-  max-width: 10%;
+  /* max-width: 10%; */
 }
 
 .input-row > div {
@@ -96,6 +92,10 @@ input::-webkit-inner-spin-button {
   border: 2px solid var(--maincolor);
   border-radius: 5px;
   overflow: hidden;
+}
+
+.metric-input .error {
+  font-size: 0.75rem;
 }
 
 .metric-input div {
