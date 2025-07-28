@@ -10,18 +10,22 @@ import ParasolObject from "./components/ParasolObject"
 import { parasols } from './data/data'
 import Floor from './components/Floor'
 import { BoxGeometry } from 'three'
+import { useWindowWidth } from '@react-hook/window-size'
 
 function App() {
   const parasolSettings = parasols[0]
   const [footSize, setFootSize] = useState(50);
   const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0], isOpen: true});
 
+  const width = useWindowWidth({wait: 1})
+  console.log(width)
+
   const animateParasol = () => {
     setParasol({...parasol, isOpen: !parasol.isOpen})
   }
 
   return (
-    <PanelGroup direction={'horizontal'}>
+    <PanelGroup direction={width > 800 ? 'horizontal' : 'vertical'}>
         <Panel defaultSize={75} className='relative'>
           <button className={('floating-button' + (parasol.isOpen ? '' : ' open'))} onClick={animateParasol}>{parasol.isOpen ? "Open" : "Close"}</button>
           <Canvas resize={{debounce: 0}} shadows>

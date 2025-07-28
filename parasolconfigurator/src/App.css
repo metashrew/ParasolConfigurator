@@ -27,12 +27,32 @@
   min-width: 0;
 }
 
+.drag-area svg {
+  width: 100%;
+  height: 100%;
+}
+
 .drag-area {
-  width: 20px;
+  --drag-area-size: 15px;
+  width: var(--drag-area-size);
   background-color: #eee;
   border-left: 2px solid #ddd;
+  z-index: 1;
   fill: #fff;
   align-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .drag-area {
+    width: auto;
+    height: var(--drag-area-size);
+    border-top: 2px solid #ddd;
+    fill: #fff;
+  }
+
+  .drag-area svg {
+    transform: rotate(90deg);
+  }
 }
 
 .relative {
@@ -49,15 +69,13 @@
   border-radius: 5px;
   padding: 10px;
   z-index: 2;
+  cursor: pointer;
 }
 
 .open {
   color: var(--maincolor);
   background-color: transparent;
   border-color: var(--maincolor);
-}
-
-.floating-button:hover {
 }
 
 @media screen and (max-width: 900px) {
