@@ -1,4 +1,4 @@
-import { Environment, Grid, OrbitControls } from '@react-three/drei'
+import { Environment, OrbitControls } from '@react-three/drei'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { PanelGroup, Panel, PanelResizeHandle } from 'react-resizable-panels'
@@ -9,7 +9,6 @@ import type { Parasol } from './types/Parasol'
 import ParasolObject from "./components/ParasolObject" 
 import { parasols } from './data/data'
 import Floor from './components/Floor'
-import { BoxGeometry } from 'three'
 import { useWindowWidth } from '@react-hook/window-size'
 
 function App() {
@@ -29,6 +28,7 @@ function App() {
         <Panel defaultSize={75} className='relative'>
           <button className={('floating-button' + (parasol.isOpen ? '' : ' open'))} onClick={animateParasol}>{parasol.isOpen ? "Open" : "Close"}</button>
           <Canvas resize={{debounce: 0}} shadows>
+            <color attach="background" args={['#eee']} />
             <Environment preset='sunset'/>
             {/* <gridHelper args={[10,10, 0x000000]}/> */}
             <OrbitControls enablePan={false} target={[0,1,0]}/>
@@ -44,7 +44,7 @@ function App() {
         <PanelResizeHandle className='drag-area'>
           <svg fill="#000" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" stroke="#000" strokeWidth="0.00016" transform="rotate(0)"><g id="SVGRepo_iconCarrier"> <g> <path d="M8,6.5A1.5,1.5,0,1,0,9.5,8,1.5,1.5,0,0,0,8,6.5Zm0,5A1.5,1.5,0,1,0,9.5,13,1.5,1.5,0,0,0,8,11.47ZM8,4.53A1.5,1.5,0,1,0,6.5,3,1.5,1.5,0,0,0,8,4.53Z"></path> </g> </g></svg>
         </ PanelResizeHandle>
-        <Panel minSize={25} maxSize={75} collapsible style={{backgroundColor: "#eee", overflow: "auto"}}>
+        <Panel minSize={25} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
           <SettingsMenu setFootSize={setFootSize} footSize={footSize} setParasol={setParasol} parasol={parasol} settings={parasolSettings} />
         </Panel>
     </PanelGroup>

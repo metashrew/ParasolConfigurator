@@ -35,8 +35,8 @@
 .drag-area {
   --drag-area-size: 15px;
   width: var(--drag-area-size);
-  background-color: #eee;
-  border-left: 2px solid #ddd;
+  /* border-left: 2px solid #ddd; */
+  box-shadow: -3px 0px 3px rgba(0, 0, 0, 0.1);
   z-index: 1;
   fill: #fff;
   align-content: center;

@@ -9,12 +9,16 @@ p {
   font-weight: 400;
 }
 
+.settings {
+  scrollbar-width: 'norma';
+}
+
 .settings-container {
   margin: 10px;
 }
 
 .settings-group {
-  background-color: white;
+  background-color: var(--bg-color);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 10px;
