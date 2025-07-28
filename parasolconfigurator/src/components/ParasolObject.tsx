@@ -38,7 +38,7 @@ export default function ParasolObject({parasol, path}: Props) {
   const mat = gltf.materials["Parasol_fabric"] as MeshStandardMaterial
   if (mat != null) {
     mat.metalness = 0
-    mat.roughness = .8
+    mat.roughness = 0.9
     mat.color = parasol.color
   }
 

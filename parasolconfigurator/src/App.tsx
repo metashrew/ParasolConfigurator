@@ -28,9 +28,9 @@ function App() {
           <button className={('floating-button' + (parasol.isOpen ? '' : ' open'))} onClick={animateParasol}>{parasol.isOpen ? "Open" : "Close"}</button>
           <Canvas resize={{debounce: 0}} shadows>
             <color attach="background" args={['#eee']} />
-            <Environment preset='sunset'/>
+            <Environment files='.\src\assets\studio_garden_1k.hdr'/>
+            <ambientLight intensity={0.5}/>
             <OrbitControls enablePan={false} target={[0,1,0]}/>
-            <directionalLight position={[-5,5,5]} intensity={1} />
             <Foot size={footSize} />
             <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>

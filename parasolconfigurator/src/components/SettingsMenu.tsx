@@ -18,10 +18,6 @@ type Props = {
 
 export default function SettingsMenu({setFootSize, footSize, setParasol, parasol, settings}: Props) {
 
-  const errorStyle: CSSProperties = {
-    color: "red"
-  }
-
   const setParasolColor = (index: number) => {
     setParasol({
       ...parasol,
@@ -34,28 +30,6 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
       ...parasol,
       size: settings.sizes[index]
     })
-  }
-
-  const handleSetFootSize = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.currentTarget.validity.valid) {
-      setFootSize(Number(e.target.value))
-    }
-  }
-
-  const validateFootsize = (e: React.FocusEvent<HTMLInputElement>) => {
-    const validation = e.currentTarget.validity
-    if(!validation.valid) {
-      if(validation.rangeUnderflow) {
-        e.currentTarget.value = e.currentTarget.min
-      }
-      if(validation.rangeOverflow) {
-        e.currentTarget.value = e.currentTarget.max
-      }
-      if(validation.valueMissing) {
-        e.currentTarget.value = footSize.toString()
-      }
-      setFootSize(Number(e.target.value))
-    }
   }
 
   return (
