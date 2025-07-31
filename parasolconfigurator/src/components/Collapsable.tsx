@@ -38,7 +38,7 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
     entering: { transform: "rotate(90deg)" },
     entered:  { transform: "rotate(90deg)" },
     exiting:  { transform: "rotate(0deg)" },
-    exited:   { transform: "rotat(0deg)" },
+    exited:   { transform: "rotate(0deg)" },
     unmounted: {}
   }
 
