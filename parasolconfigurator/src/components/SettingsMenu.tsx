@@ -35,27 +35,6 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
 
   return (
     <div className='settings-container'>
-      {/* <div className='settings-group'>
-        <h2>parasol</h2>
-        <p>grootte</p>
-        <div className='radio-list shadow'>
-          {settings.sizes.map((option, i) => <RadioSelectItem<ParasolSize> key={i} option={option} stateValue={parasol.size} stateSetter={() => setParasolSize(i)}/>)}
-        </div>
-        <p>kleur</p>
-        <div className='color-list'>
-          {settings.colors.map((color, i) => 
-            <ColorSelectItem key={i} option={color} stateValue={parasol.color} stateSetter={() => setParasolColor(i)}>
-            </ColorSelectItem>
-          )}
-        </div>
-      </div>
-      <div className='settings-group'>
-        <h2>voet</h2>
-        <div className='input-row'>
-          <span>radius</span>
-          <ValueInput value={footSize} setter={setFootSize} postfix='cm'/>
-        </div>
-      </div> */}
       <Collapsable title='Parasol'>
         <p>grootte</p>
         <div className='radio-list shadow'>

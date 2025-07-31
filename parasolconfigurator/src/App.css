@@ -76,10 +76,11 @@
   padding: 10px;
   z-index: 2;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .floating-button.open {
   color: var(--maincolor);
-  background-color: transparent;
+  background-color: white;
   border-color: var(--maincolor);
 }
