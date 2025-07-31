@@ -7,6 +7,7 @@ import ColorSelectItem from './ColorSelectItem'
 import React, { type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
 import type { ParasolSettings } from '../types/ParasolSettings'
 import ValueInput from './ValueInput'
+import Collapsable from './Collapsable'
 
 type Props = {
   setFootSize: Dispatch<SetStateAction<number>>
@@ -34,7 +35,7 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
 
   return (
     <div className='settings-container'>
-      <div className='settings-group'>
+      {/* <div className='settings-group'>
         <h2>parasol</h2>
         <p>grootte</p>
         <div className='radio-list shadow'>
@@ -51,18 +52,29 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
       <div className='settings-group'>
         <h2>voet</h2>
         <div className='input-row'>
-          <span>diameter</span>
-          {/* <div className='metric-input' style={errorStyle}>
-            <input className='shadow' type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={footSize} maxLength={6} 
-              onChange={handleSetFootSize} 
-              onBlur={validateFootsize}
-              onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
-            />
-            <div>cm</div>
-          </div> */}
+          <span>radius</span>
           <ValueInput value={footSize} setter={setFootSize} postfix='cm'/>
         </div>
-      </div>
+      </div> */}
+      <Collapsable title='Parasol'>
+        <p>grootte</p>
+        <div className='radio-list shadow'>
+          {settings.sizes.map((option, i) => <RadioSelectItem<ParasolSize> key={i} option={option} stateValue={parasol.size} stateSetter={() => setParasolSize(i)}/>)}
+        </div>
+        <p>kleur</p>
+        <div className='color-list'>
+          {settings.colors.map((color, i) => 
+            <ColorSelectItem key={i} option={color} stateValue={parasol.color} stateSetter={() => setParasolColor(i)}>
+            </ColorSelectItem>
+          )}
+        </div>
+      </Collapsable>
+      <Collapsable title='Voet'>
+          <div className='input-row'>
+            <span>radius</span>
+            <ValueInput value={footSize} setter={setFootSize} postfix='cm'/>
+          </div>
+      </Collapsable>
     </div>
   )
 }

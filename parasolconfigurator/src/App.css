@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"');
+
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 #root {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   --maincolor: #ff7300;
   --bgcolor: white;
@@ -57,6 +58,7 @@
 .settings {
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 .relative {
@@ -76,12 +78,8 @@
   cursor: pointer;
 }
 
-.open {
+.floating-button.open {
   color: var(--maincolor);
   background-color: transparent;
   border-color: var(--maincolor);
-}
-
-@media screen and (max-width: 900px) {
-  
 }
