@@ -1,5 +1,7 @@
+import { useGLTF } from "@react-three/drei/core/Gltf"
 import { useMemo } from "react"
 import { MeshStandardMaterial, Shape, type ExtrudeGeometryOptions } from "three"
+import { Group } from "three/examples/jsm/libs/tween.module.js"
 
 type Props = {
     size: number
@@ -7,22 +9,15 @@ type Props = {
 }
 
 export default function Foot({size, height = 0.075}: Props) {
-  const pipeRadius = 0.03
-  const realSize = size / 100
-  const slant = 0.05
-
-  const material = useMemo(() => <meshStandardMaterial roughness={0.2} color={0x333333}/>,[])
+  
+  const gltf = useGLTF(`./src/assets/foot.glb`)
+  const remappedValue = (size - 30) / 30
+  console.log(remappedValue)
+  gltf.nodes["Cylinder"].morphTargetInfluences[0] = remappedValue
 
   return (
-    <group>
-      <mesh position={[0,height/2,0]}>
-        <cylinderGeometry args={[realSize - slant, realSize, height, 32]}/>
-        {material}
-      </mesh>
-      <mesh position={[0,0.10,0]}>
-        <cylinderGeometry args={[pipeRadius, pipeRadius, 0.2]}/>
-        {material}
-      </mesh>
-    </group>
+    <>
+      <primitive object={gltf.scene} />
+    </>
   )
 }

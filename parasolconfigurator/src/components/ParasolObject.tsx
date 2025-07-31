@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function ParasolObject({parasol, path}: Props) {
-  const gltf = useGLTF(`${path}-all.glb`)
+  const gltf = useGLTF(`${path}.glb`)
   const { ref, actions } = useAnimations(gltf.animations)
   
   //play the animation when open/close state changes

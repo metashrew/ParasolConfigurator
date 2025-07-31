@@ -28,8 +28,8 @@ function App() {
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
           <Canvas resize={{debounce: 0}} shadows>
             <color attach="background" args={['#eee']} />
-            <Environment files='.\src\assets\dreifaltigkeitsberg_1k.hdr'/>
-            <ambientLight intensity={1}/>
+            <Environment preset='forest'/>
+            {/* <ambientLight intensity={1}/> */}
             <OrbitControls enablePan={false} target={[0,1,0]}/>
             <Foot size={footSize} />
             <Suspense>
