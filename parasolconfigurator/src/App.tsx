@@ -17,25 +17,26 @@ function App() {
   const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0], isOpen: true});
 
   const width = useWindowWidth({wait: 1})
+  const isDesktop = width > 800
 
   const openParasol = () => {
     setParasol({...parasol, isOpen: !parasol.isOpen})
   }
 
   return (
-    <PanelGroup direction={width > 800 ? 'horizontal' : 'vertical'}>
+    <PanelGroup direction={isDesktop ? 'horizontal' : 'vertical'}>
         <Panel defaultSize={75} className='relative'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
           <Canvas resize={{debounce: 0}} shadows>
-            <color attach="background" args={['#eee']} />
+            <color attach="background" args={['#ddd']} />
             <Environment preset='forest'/>
             {/* <ambientLight intensity={1}/> */}
-            <OrbitControls enablePan={false} target={[0,1,0]}/>
+            <OrbitControls enablePan={false} target={[0,1.5,0]}/>
             <Foot size={footSize} />
             <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>
-            <Floor/>
+            {/* <Floor/> */}
           </Canvas>
         </Panel>
         <PanelResizeHandle className='drag-area'>

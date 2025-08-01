@@ -2,6 +2,7 @@ import React, { useRef, useState, type CSSProperties, type PropsWithChildren } f
 import './Collapsable.css'
 import { Transition, type TransitionStatus } from 'react-transition-group'
 import Background from 'three/src/renderers/common/Background.js'
+import ArrowSVG from './ArrowSVG'
 
 type Props = {
   title: string
@@ -44,10 +45,10 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
 
   return (
     <div className='collapsable'>
-      <div onClick={() => setIsOpen(!isOpen)} style={{display: 'flex', gap: "10px", cursor: "pointer"}}>
+      <div onClick={() => setIsOpen(!isOpen)} style={{display: 'flex', gap: "10px", cursor: "pointer", alignItems: "center"}}>
         <Transition nodeRef={iconRef} in={isOpen} timeout={400}>
           {state => (
-            <img src="/src/assets/arrow.svg" style={{...iconStyle, ...iconTransitions[state]}}/>
+            <ArrowSVG style={{...iconStyle, ...iconTransitions[state]}}/>
           )}
         </Transition>
         <h2 style={{margin: 0}}>{title}</h2>

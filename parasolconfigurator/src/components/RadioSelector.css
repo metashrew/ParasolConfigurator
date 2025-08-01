@@ -20,5 +20,5 @@
 
 .radio-list > .selected {
     background-color: var(--maincolor);
-    color: white;
+    color: var(--bgcolor);
 }

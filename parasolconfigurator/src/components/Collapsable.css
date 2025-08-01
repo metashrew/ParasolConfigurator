@@ -6,6 +6,10 @@
     margin-bottom: 5px;
 }
 
+.collapsable svg {
+    fill: var(--textcolor);
+}
+
 .content {
     overflow: hidden;
     transition: all 100ms;

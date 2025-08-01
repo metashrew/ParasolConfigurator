@@ -1,5 +1,5 @@
 import React, { useState, type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
-import { div } from 'three/tsl'
+import './ValueInput.css'
 
 type Props = {
   value: number
@@ -13,8 +13,8 @@ export default function ValueInput({value, setter, postfix}: Props) {
   const [errormsg, setErrormsg] = useState("")
 
   const errorStyle: CSSProperties = {
-    backgroundColor: "red",
-    borderColor: "red",
+    backgroundColor: "#ec3131ff",
+    borderColor: "#ec3131ff",
     textOverflow: "clip"
   }
   
@@ -49,7 +49,7 @@ export default function ValueInput({value, setter, postfix}: Props) {
   return (
     <div className='metric-input'>
         {isValid ? null : <div style={errorStyle} className='error'>{errormsg}</div>}
-        <input className='shadow' type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={value} maxLength={6} 
+        <input type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={value} maxLength={6} 
             onChange={handleSetValue} 
             onBlur={validateValue}
             onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}

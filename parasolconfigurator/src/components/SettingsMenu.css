@@ -14,7 +14,7 @@ p {
 }
 
 .settings-group {
-  background-color: var(--bg-color);
+  background-color: var(--bgcolor);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 10px;
@@ -25,7 +25,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  background-color: #ddd;
+  background-color: var(--bgcolor2);
   padding: 10px;
   border-radius: 5px;
 }
@@ -84,31 +84,4 @@ input::-webkit-inner-spin-button {
 .input-row > div {
   flex-grow: 0;
   min-width: 0;
-}
-
-.metric-input {
-  display: flex;
-  width: fit-content;
-  border: 2px solid var(--maincolor);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.metric-input .error {
-  font-size: 0.75rem;
-}
-
-.metric-input div {
-  background-color: var(--maincolor);
-  color: white;
-  align-content: center;
-  padding: 0px 10px;
-}
-
-.metric-input span {
-  flex-shrink: 1;
-}
-
-.metric-input.error {
-  color: red;
 }
