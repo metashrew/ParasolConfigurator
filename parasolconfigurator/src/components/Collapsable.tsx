@@ -3,6 +3,7 @@ import './Collapsable.css'
 import { Transition, type TransitionStatus } from 'react-transition-group'
 import Background from 'three/src/renderers/common/Background.js'
 import ArrowSVG from './ArrowSVG'
+import { Grid } from '@react-three/drei'
 
 type Props = {
   title: string
@@ -17,16 +18,16 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
   const duration = 200;
 
   const defaultStyle: CSSProperties = {
-    overflowY: 'hidden',
-    transition: `height ${duration}ms ease-out`,
-    height: 0,
+    display: 'grid',
+    gridTemplateRows: '0fr',
+    transition: `all ${duration}ms ease-out`
   }
 
   const transitionStyles = {
-    entering: { height: "auto" },
-    entered:  { height: "auto" },
-    exiting:  { height: 0 },
-    exited:   { height: 0 },
+    entering: { gridTemplateRows: '1fr' },
+    entered:  { gridTemplateRows: '1fr' },
+    exiting:  { gridTemplateRows: '0fr'},
+    exited:   { gridTemplateRows: '0fr'},
     unmounted: {}
   };
 
@@ -56,7 +57,9 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
       <Transition nodeRef={contentRef} in={isOpen} timeout={400}>
         {state => (
           <div ref={contentRef} style={{...defaultStyle, ...transitionStyles[state]}}>
-            {children}
+            <div style={{overflowY: 'hidden'}}>
+              {children}
+            </div>
           </div>
         )}
       </Transition>

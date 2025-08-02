@@ -81,6 +81,7 @@ canvas {
 .floating-button {
   position: absolute;
   right: 0;
+  bottom: 0;
   margin: 10px;
   color: var(--bgcolor);
   background-color: var(--maincolor);
