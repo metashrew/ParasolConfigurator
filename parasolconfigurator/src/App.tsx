@@ -28,7 +28,7 @@ function App() {
         <Panel defaultSize={75} className='relative'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
           <Canvas resize={{debounce: 0}} shadows>
-            <color attach="background" args={['#ddd']} />
+            <color attach="background" args={['#ccc']} />
             <Environment preset='forest'/>
             {/* <ambientLight intensity={1}/> */}
             <OrbitControls enablePan={false} target={[0,1.5,0]}/>
