@@ -49,18 +49,6 @@ p {
   border-radius: 10%;
 }
 
-input[type=number] {
-  height: 2rem;
-  max-width: 8ch;
-  /* border: 2px solid var(--maincolor); */
-  border: none;
-  box-sizing: border-box;
-  /* padding-left: 10px; */
-  text-align: center;
-  font-weight: 700;
-  -moz-appearance: textfield;
-}
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -73,6 +61,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: space-between;
   gap: 5px;
+  min-height: 2rem;
 }
 
 .input-row > span {

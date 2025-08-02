@@ -47,7 +47,7 @@ export default function ValueInput({value, setter, postfix}: Props) {
   }
 
   return (
-    <div className='metric-input'>
+    <div className='metric-input' style={isValid ? undefined : errorStyle}>
         {isValid ? null : <div style={errorStyle} className='error'>{errormsg}</div>}
         <input type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={value} maxLength={6} 
             onChange={handleSetValue} 

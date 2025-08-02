@@ -1,4 +1,5 @@
 .metric-input {
+  align-self: stretch;
   display: flex;
   width: fit-content;
   border: 2px solid var(--maincolor);
@@ -28,4 +29,14 @@
 .metric-input input {
   background-color: var(--bgcolor);
   color: var(--textcolor);
+}
+
+input[type=number] {
+  max-width: 8ch;
+  /* border: 2px solid var(--maincolor); */
+  border: none;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: 700;
+  -moz-appearance: textfield;
 }

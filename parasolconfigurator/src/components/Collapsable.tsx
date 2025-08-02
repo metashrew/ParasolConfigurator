@@ -20,7 +20,7 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
   const defaultStyle: CSSProperties = {
     display: 'grid',
     gridTemplateRows: '0fr',
-    transition: `all ${duration}ms ease-out`
+    transition: `grid-template-rows ${duration}ms ease-out`
   }
 
   const transitionStyles = {
