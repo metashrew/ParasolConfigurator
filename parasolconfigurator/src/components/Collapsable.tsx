@@ -52,7 +52,7 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
             <ArrowSVG style={{...iconStyle, ...iconTransitions[state]}}/>
           )}
         </Transition>
-        <h2 style={{margin: 0}}>{title}</h2>
+        <h2 style={{margin: 0, userSelect: "none"}}>{title}</h2>
       </div>
       <Transition nodeRef={contentRef} in={isOpen} timeout={400}>
         {state => (
