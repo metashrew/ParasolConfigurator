@@ -13,7 +13,7 @@
 
 .metric-input div {
   background-color: var(--maincolor);
-  color: var(--bgcolor);
+  color: white;
   align-content: center;
   padding: 0px 10px;
 }
@@ -27,7 +27,7 @@
 }
 
 .metric-input input {
-  background-color: var(--bgcolor);
+  background-color: white;
   color: var(--textcolor);
 }
 

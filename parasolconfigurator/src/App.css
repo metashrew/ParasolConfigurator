@@ -13,10 +13,12 @@
   --maincolor: #393d63;
   --bgcolor: rgb(255, 255, 255);
   --bgcolor2: #ddd;
+  --bgcolor3: white;
   --textcolor: rgb(49, 49, 49);
   --borderradius: 5px;
   --borderwidth: 3px 
   color: var(--textcolor);
+  background-color: var(--bgcolor);
 }
 
 .app-container {
@@ -25,16 +27,20 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
+  margin: 10px;
 }
 
 .canvas-container {
-  flex: 1;
+  /* flex: 1;
   position: relative;
-  min-width: 0;
+  min-width: 0; */
+  margin: 10px;
+  margin-right: 0px;
 }
 
 canvas {
   pointer-events: none;
+  border-radius: var(--borderradius);
 }
 
 .drag-area svg {
@@ -47,22 +53,33 @@ canvas {
   --drag-area-size: 20px;
   background-color: var(--bgcolor);
   width: var(--drag-area-size);
-  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  /* box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.1); */
   align-content: center;
   touch-action: none;
   user-select: none;
+  margin: 10px 0px;
+  border-radius: var(--borderradius);
 }
 
 @media screen and (max-width: 800px) {
   .drag-area {
     width: auto;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-    height: calc(var(--drag-area-size) * 2.5);
+    z-index: 1;
+
+    /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
+    height: calc(var(--drag-area-size) * 2);
   }
 
   .drag-area svg {
     transform: rotate(90deg);
+  }
+
+  .canvas-container {
+    margin: 10px;
+  }
+
+  .settings {
+    padding-left: 10px;
   }
 }
 
@@ -82,7 +99,7 @@ canvas {
   right: 0;
   bottom: 0;
   margin: 10px;
-  color: var(--bgcolor);
+  color: var(--bgcolor3);
   background-color: var(--maincolor);
   border-radius: var(--borderradius);
   border-width: 0px;
@@ -94,6 +111,6 @@ canvas {
 
 .floating-button.open {
   color: var(--maincolor);
-  background-color: var(--bgcolor);
+  background-color: var(--bgcolor3);
   border-color: var(--maincolor);
 }

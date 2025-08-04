@@ -25,7 +25,7 @@ function App() {
 
   return (
     <PanelGroup direction={isDesktop ? 'horizontal' : 'vertical'}>
-        <Panel defaultSize={75} className='relative'>
+        <Panel defaultSize={75} className='relative canvas-container'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close ⛱️" : "Open ⛱️"}</button>
           <Canvas resize={{debounce: 0}} shadows>
             <color attach="background" args={['#ccc']} />
