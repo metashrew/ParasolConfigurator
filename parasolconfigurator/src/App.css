@@ -37,10 +37,10 @@
 }
 
 canvas {
-  /* pointer-events: none; */
+  pointer-events: none;
   border-radius: var(--borderradius);
   background: #c9f8ff;
-  background: linear-gradient(180deg, #d2eeee 0%, rgb(215, 222, 250) 100%);
+  background: linear-gradient(180deg, #b2d0f8 0%, rgb(145, 154, 185) 100%);
 }
 
 .drag-area svg {

@@ -27,12 +27,12 @@ function App() {
     <PanelGroup direction={isDesktop ? 'horizontal' : 'vertical'}>
         <Panel defaultSize={75} className='canvas-container'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close ⛱️" : "Open ⛱️"}</button>
-          <Canvas resize={{debounce: 0}} shadows>
+          <Canvas resize={{debounce: 0}} shadows camera={{position: [3,2.75,2]}}>
             {/* <color attach="background" args={['#ccc']} /> */}
             {/* <ambientLight intensity={1}/> */}
             {/* <Floor/> */}
             <Environment preset='forest'/>
-            <OrbitControls enablePan={false} target={[0,1.5,0]}/>
+            <OrbitControls enablePan={false} target={[0,1.5,0]} />
             <Foot size={footSize} min={30} max={60}/>
             <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
