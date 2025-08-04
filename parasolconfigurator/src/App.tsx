@@ -48,7 +48,7 @@ function App() {
             </g>
           </svg>
         </ PanelResizeHandle>
-        <Panel minSize={25} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
+        <Panel minSize={25} maxSize={75} collapsible className='settings'>
           <SettingsMenu setFootSize={setFootSize} footSize={footSize} setParasol={setParasol} parasol={parasol} settings={parasolSettings} />
         </Panel>
     </PanelGroup>
