@@ -8,7 +8,7 @@ type Props = {
 
 export default function Foot({size, min, max}: Props) {
 
-  const gltf = useGLTF(`public/foot.glb`)
+  const gltf = useGLTF(`/foot.glb`)
   
   //this formula remaps any range min-max to 0-1
   const remappedValue = (size - min) / (max - min)

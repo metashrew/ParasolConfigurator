@@ -13,7 +13,7 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0x445599),
             new Color().setHex(0xCC3366),
         ],
-        modelpath: "public/parasol-all.glb",
+        modelpath: "/parasol-all.glb",
         footsizeMin: 30,
         footsizeMax: 60
     },
@@ -24,7 +24,7 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0xFFFF00),
             new Color().setHex(0x008899),
         ],
-        modelpath: "public/parasol-all.glb",
+        modelpath: "/parasol-all.glb",
         footsizeMin: 20,
         footsizeMax: 90
     }
