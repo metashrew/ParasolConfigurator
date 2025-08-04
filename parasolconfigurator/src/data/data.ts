@@ -1,6 +1,7 @@
 import { Color } from "three";
 import type { ParasolSettings } from "../types/ParasolSettings";
 
+//only the first one is used, but in theory you could have multiple parasols
 export const parasols: Array<ParasolSettings> = [
     {
         sizes: ['M', 'L', 'XL'],
@@ -21,7 +22,7 @@ export const parasols: Array<ParasolSettings> = [
         colors: [
             new Color().setHex(0x000000),
             new Color().setHex(0xFFFF00),
-            new Color().setHex(0x008844),
+            new Color().setHex(0x008899),
         ],
         modelpath: "public/parasol-all.glb",
         footsizeMin: 20,
