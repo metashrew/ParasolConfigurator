@@ -10,7 +10,7 @@
 #root {
   height: 100dvh;
   width: 100%;
-  --maincolor: #393d63;
+  --maincolor: #1a5388;
   --bgcolor: rgb(255, 255, 255);
   --bgcolor2: #ddd;
   --bgcolor3: white;
@@ -31,16 +31,16 @@
 }
 
 .canvas-container {
-  /* flex: 1;
   position: relative;
-  min-width: 0; */
   margin: 10px;
   margin-right: 0px;
 }
 
 canvas {
-  pointer-events: none;
+  /* pointer-events: none; */
   border-radius: var(--borderradius);
+  background: #c9f8ff;
+  background: linear-gradient(180deg, #d2eeee 0%, rgb(215, 222, 250) 100%);
 }
 
 .drag-area svg {
@@ -53,11 +53,9 @@ canvas {
   --drag-area-size: 20px;
   background-color: var(--bgcolor);
   width: var(--drag-area-size);
-  /* box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.1); */
   align-content: center;
   touch-action: none;
   user-select: none;
-  margin: 10px 0px;
   border-radius: var(--borderradius);
 }
 
@@ -65,8 +63,8 @@ canvas {
   .drag-area {
     width: auto;
     z-index: 1;
-
-    /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
+    margin: 0px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
     height: calc(var(--drag-area-size) * 2);
   }
 
@@ -76,6 +74,7 @@ canvas {
 
   .canvas-container {
     margin: 10px;
+    margin-bottom: 0px;
   }
 
   .settings {
@@ -85,13 +84,7 @@ canvas {
 
 .settings {
   scrollbar-width: thin;
-  scroll-behavior: smooth;
-  /* scrollbar-gutter: stable; */
   background-color: var(--bgcolor);
-}
-
-.relative {
-  position: relative;
 }
 
 .floating-button {

@@ -25,18 +25,18 @@ function App() {
 
   return (
     <PanelGroup direction={isDesktop ? 'horizontal' : 'vertical'}>
-        <Panel defaultSize={75} className='relative canvas-container'>
+        <Panel defaultSize={75} className='canvas-container'>
           <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close ⛱️" : "Open ⛱️"}</button>
           <Canvas resize={{debounce: 0}} shadows>
-            <color attach="background" args={['#ccc']} />
-            <Environment preset='forest'/>
+            {/* <color attach="background" args={['#ccc']} /> */}
             {/* <ambientLight intensity={1}/> */}
+            {/* <Floor/> */}
+            <Environment preset='forest'/>
             <OrbitControls enablePan={false} target={[0,1.5,0]}/>
             <Foot size={footSize} min={30} max={60}/>
             <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>
-            {/* <Floor/> */}
           </Canvas>
         </Panel>
         <PanelResizeHandle className='drag-area'>
@@ -48,7 +48,7 @@ function App() {
             </g>
           </svg>
         </ PanelResizeHandle>
-        <Panel minSize={25} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
+        <Panel minSize={isDesktop ? 25 : 0} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
           <SettingsMenu setFootSize={setFootSize} footSize={footSize} setParasol={setParasol} parasol={parasol} settings={parasolSettings} />
         </Panel>
     </PanelGroup>

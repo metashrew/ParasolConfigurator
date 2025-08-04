@@ -5,14 +5,14 @@
   border: 3px solid var(--maincolor);
   border-radius: 5px;
   overflow: hidden;
+  background-color: var(--maincolor);
 }
 
 .metric-input .error {
-  font-size: 0.75rem;
+  font-size: 0.66rem;
 }
 
 .metric-input div {
-  background-color: var(--maincolor);
   color: white;
   align-content: center;
   padding: 0px 10px;
@@ -22,20 +22,8 @@
   flex-shrink: 1;
 }
 
-.metric-input.error {
-  color: red;
-}
-
 .metric-input input {
   background-color: white;
   color: var(--textcolor);
-}
-
-input[type=number] {
-  max-width: 8ch;
-  border: none;
-  box-sizing: border-box;
-  text-align: center;
-  font-weight: 700;
-  -moz-appearance: textfield;
+  border-radius: 3px;
 }

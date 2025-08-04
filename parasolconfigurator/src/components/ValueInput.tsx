@@ -50,7 +50,7 @@ export default function ValueInput({value, setter, postfix, min = 0, max = 100}:
 
   return (
     <div className='metric-input' style={isValid ? undefined : errorStyle}>
-        {isValid ? null : <div style={errorStyle} className='error'>{errormsg}</div>}
+        {isValid ? null : <div className='error'>{errormsg}</div>}
         <input type="number" name="footsize" id="footsize" required min={min} max={max} defaultValue={value} maxLength={6} 
             onChange={handleSetValue} 
             onBlur={validateValue}
