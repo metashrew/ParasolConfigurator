@@ -2,7 +2,7 @@
   align-self: stretch;
   display: flex;
   width: fit-content;
-  border: 2px solid var(--maincolor);
+  border: 3px solid var(--maincolor);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -33,7 +33,6 @@
 
 input[type=number] {
   max-width: 8ch;
-  /* border: 2px solid var(--maincolor); */
   border: none;
   box-sizing: border-box;
   text-align: center;

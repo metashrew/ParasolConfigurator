@@ -26,7 +26,7 @@ function App() {
   return (
     <PanelGroup direction={isDesktop ? 'horizontal' : 'vertical'}>
         <Panel defaultSize={75} className='relative'>
-          <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close" : "Open"}</button>
+          <button className={('floating-button' + (parasol.isOpen ? ' open' : ''))} onClick={openParasol}>{parasol.isOpen ? "Close ⛱️" : "Open ⛱️"}</button>
           <Canvas resize={{debounce: 0}} shadows>
             <color attach="background" args={['#ccc']} />
             <Environment preset='forest'/>
@@ -48,7 +48,7 @@ function App() {
             </g>
           </svg>
         </ PanelResizeHandle>
-        <Panel minSize={25} maxSize={75} collapsible className='settings'>
+        <Panel minSize={25} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
           <SettingsMenu setFootSize={setFootSize} footSize={footSize} setParasol={setParasol} parasol={parasol} settings={parasolSettings} />
         </Panel>
     </PanelGroup>
