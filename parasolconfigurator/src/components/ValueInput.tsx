@@ -5,9 +5,11 @@ type Props = {
   value: number
   setter: Dispatch<SetStateAction<number>>
   postfix: string
+  min?: number
+  max?: number
 }
 
-export default function ValueInput({value, setter, postfix}: Props) {
+export default function ValueInput({value, setter, postfix, min = 0, max = 100}: Props) {
 
   const [isValid, setIsValid] = useState(true)
   const [errormsg, setErrormsg] = useState("")
@@ -49,7 +51,7 @@ export default function ValueInput({value, setter, postfix}: Props) {
   return (
     <div className='metric-input' style={isValid ? undefined : errorStyle}>
         {isValid ? null : <div style={errorStyle} className='error'>{errormsg}</div>}
-        <input type="number" name="footsize" id="footsize" required min={30} max={60} defaultValue={value} maxLength={6} 
+        <input type="number" name="footsize" id="footsize" required min={min} max={max} defaultValue={value} maxLength={6} 
             onChange={handleSetValue} 
             onBlur={validateValue}
             onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}

@@ -32,7 +32,7 @@ function App() {
             <Environment preset='forest'/>
             {/* <ambientLight intensity={1}/> */}
             <OrbitControls enablePan={false} target={[0,1.5,0]}/>
-            <Foot size={footSize} />
+            <Foot size={footSize} min={30} max={60}/>
             <Suspense>
               <ParasolObject parasol={parasol} path={parasolSettings.modelpath}/>
             </Suspense>

@@ -4,7 +4,7 @@ import type { ParasolSize } from '../types/Size'
 import './RadioSelector.css'
 import RadioSelectItem from './RadioSelectItem'
 import ColorSelectItem from './ColorSelectItem'
-import React, { type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
+import { type Dispatch, type SetStateAction } from 'react'
 import type { ParasolSettings } from '../types/ParasolSettings'
 import ValueInput from './ValueInput'
 import Collapsable from './Collapsable'
@@ -51,7 +51,7 @@ export default function SettingsMenu({setFootSize, footSize, setParasol, parasol
       <Collapsable title='Voet'>
           <div className='input-row'>
             <span>radius</span>
-            <ValueInput value={footSize} setter={setFootSize} postfix='cm'/>
+            <ValueInput value={footSize} setter={setFootSize} postfix='cm' min={settings.footsizeMin} max={settings.footsizeMax}/>
           </div>
       </Collapsable>
     </div>

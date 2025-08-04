@@ -12,6 +12,8 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0x445599),
             new Color().setHex(0xCC3366),
         ],
-        modelpath: "./src/assets/parasol-all"
+        modelpath: "./src/assets/parasol-all",
+        footsizeMin: 30,
+        footsizeMax: 60
     }
 ]
