@@ -6,7 +6,7 @@
     /* width: 100%; */
 }
 
-.radio-list div {
+.radio-list button {
     color: var(--maincolor);
     font-weight: 900;
     align-content: center;
@@ -16,6 +16,7 @@
     touch-action: none;
     user-select: none;
     cursor: pointer;
+    border: 0px;
 }
 
 .radio-list > .selected {

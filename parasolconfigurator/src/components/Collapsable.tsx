@@ -46,14 +46,14 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
 
   return (
     <div className='collapsable'>
-      <div onClick={() => setIsOpen(!isOpen)} style={{display: 'flex', gap: "10px", cursor: "pointer", alignItems: "center"}}>
+      <button onClick={() => setIsOpen(!isOpen)} style={{display: 'flex', gap: "10px", cursor: "pointer", alignItems: "center"}}>
         <Transition nodeRef={iconRef} in={isOpen} timeout={400}>
           {state => (
             <ArrowSVG style={{...iconStyle, ...iconTransitions[state]}}/>
           )}
         </Transition>
         <h2 style={{margin: 0, userSelect: "none"}}>{title}</h2>
-      </div>
+      </button>
       <Transition nodeRef={contentRef} in={isOpen} timeout={400}>
         {state => (
           <div ref={contentRef} style={{...defaultStyle, ...transitionStyles[state]}}>

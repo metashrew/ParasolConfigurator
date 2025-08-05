@@ -9,8 +9,8 @@ type Props<T> = {
 export default function RadioSelectItem<T>({ option, stateValue, stateSetter, children}: PropsWithChildren<Props<T>>) {
   
   return (
-    <div className={stateValue == option ? "selected" : undefined} onClick={e => stateSetter()}> 
+    <button className={stateValue == option ? "selected" : undefined} onClick={e => stateSetter()}> 
         {children ? children : <span>{option as string}</span>}
-    </div>
+    </button>
   )
 }
