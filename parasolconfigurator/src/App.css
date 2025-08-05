@@ -46,6 +46,7 @@ canvas {
 button {
   background-color: transparent;
   border: 0px;
+  color: inherit;
 }
 
 .drag-area svg {
