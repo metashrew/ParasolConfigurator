@@ -1,9 +1,7 @@
-import React, { useRef, useState, type CSSProperties, type PropsWithChildren } from 'react'
+import { useRef, useState, type CSSProperties, type PropsWithChildren } from 'react'
 import './Collapsable.css'
-import { Transition, type TransitionStatus } from 'react-transition-group'
-import Background from 'three/src/renderers/common/Background.js'
+import { Transition } from 'react-transition-group'
 import ArrowSVG from './ArrowSVG'
-import { Grid } from '@react-three/drei'
 
 type Props = {
   title: string
@@ -29,7 +27,7 @@ export default function Collapsable({title, children}: PropsWithChildren<Props>)
     exiting:  { gridTemplateRows: '0fr'},
     exited:   { gridTemplateRows: '0fr'},
     unmounted: {}
-  };
+  }
 
   const iconStyle: CSSProperties = {
     transition: `transform ${duration}ms ease-out`,

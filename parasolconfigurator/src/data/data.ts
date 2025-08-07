@@ -1,7 +1,8 @@
 import { Color } from "three";
 import type { ParasolSettings } from "../types/ParasolSettings";
 
-//only the first one is used, but in theory you could have multiple parasols
+//this file contains the data that the configurator will use to display the parasol and the available settings
+//only the first one is used, but in theory you could have multiple parasols and load whichever one you like
 export const parasols: Array<ParasolSettings> = [
     {
         sizes: ['M', 'L', 'XL'],
@@ -13,9 +14,10 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0x445599),
             new Color().setHex(0xCC3366),
         ],
-        modelpath: "/parasol-all.glb",
-        footsizeMin: 30,
-        footsizeMax: 60
+        parasolModelPath: "/parasol-all.glb",
+        footModelPath: "/foot.glb",
+        footSizeMin: 30,
+        footSizeMax: 60
     },
     {
         sizes: ['L', 'M'],
@@ -24,8 +26,9 @@ export const parasols: Array<ParasolSettings> = [
             new Color().setHex(0xFFFF00),
             new Color().setHex(0x008899),
         ],
-        modelpath: "/parasol-all.glb",
-        footsizeMin: 20,
-        footsizeMax: 90
+        parasolModelPath: "/parasol-all.glb",
+        footModelPath: "/foot.glb",
+        footSizeMin: 20,
+        footSizeMax: 90
     }
 ]

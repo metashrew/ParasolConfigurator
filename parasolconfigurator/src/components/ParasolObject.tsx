@@ -29,7 +29,7 @@ export default function ParasolObject({parasol, path}: Props) {
     else model.visible = false
   })
 
-  //change the color when state changes
+  //set the color
   const mat = gltf.materials["Parasol_fabric"] as MeshStandardMaterial
   if (mat != null) {
     mat.metalness = 0
