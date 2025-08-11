@@ -10,20 +10,37 @@ import ParasolObject from "./components/ParasolObject"
 import { parasols } from './data/data'
 import Floor from './components/Floor'
 import { useWindowWidth } from '@react-hook/window-size'
-import DragSVG from './components/DragSVG'
+import DragSVG from './components/SVG/DragSVG'
 
 function App() {
-  //while unnecessary for this demo, you could add more parasols with different settings if you wanted to
   const parasolSettings = parasols[0]
 
-  const [footSize, setFootSize] = useState(50);
+  const [footSize, setFootSize] = useState(parasolSettings.footSizeMin);
   const [parasol, setParasol] = useState<Parasol>({ size: parasolSettings.sizes[0], color: parasolSettings.colors[0], isOpen: true});
 
   const width = useWindowWidth({wait: 1})
   const isDesktop = width > 800
 
   const openParasol = () => {
-    setParasol({...parasol, isOpen: !parasol.isOpen})
+    setParasol((prevParasol) => ({...prevParasol, isOpen: !parasol.isOpen}))
+  }
+
+  const handleChangeParasolSize = (index: number) => {
+    setParasol({
+      ...parasol,
+      size: parasolSettings.sizes[index]
+    })
+  }
+
+  const handleChangeParasolColor = (index: number) => {
+    setParasol({
+      ...parasol,
+      color: parasolSettings.colors[index]
+    })
+  }
+
+  const handleChangeFootsize = (radius: number) => {
+    setFootSize(radius)
   }
 
   return (
@@ -45,10 +62,17 @@ function App() {
 
         <PanelResizeHandle className='drag-area'>
           <DragSVG/>
-        </ PanelResizeHandle>
+        </PanelResizeHandle>
 
         <Panel minSize={isDesktop ? 25 : 0} maxSize={75} collapsible className='settings' style={{overflow: 'auto'}}>
-          <SettingsMenu setFootSize={setFootSize} footSize={footSize} setParasol={setParasol} parasol={parasol} settings={parasolSettings} />
+          <SettingsMenu 
+            parasol={parasol} 
+            footSize={footSize} 
+            setFootSize={handleChangeFootsize} 
+            setParasolSize={handleChangeParasolSize}
+            setParasolColor={handleChangeParasolColor}
+            settings={parasolSettings} 
+          />
         </Panel>
         
     </PanelGroup>

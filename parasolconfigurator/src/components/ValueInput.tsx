@@ -1,9 +1,9 @@
-import React, { useState, type ChangeEvent, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
+import React, { useState, type ChangeEvent, type CSSProperties } from 'react'
 import './ValueInput.css'
 
 type Props = {
   value: number
-  setter: Dispatch<SetStateAction<number>>
+  setter: (radius: number) => void
   postfix: string
   min?: number
   max?: number

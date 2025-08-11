@@ -10,15 +10,14 @@
     text-align: left;
 }
 
+.collapsable > button {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    align-items: center;
+    width: 100%;
+}
+
 .collapsable svg {
     fill: var(--maincolor);
-}
-
-.content {
-    overflow: hidden;
-    transition: all 100ms;
-}
-
-.content.open {
-    height: 100%;
 }

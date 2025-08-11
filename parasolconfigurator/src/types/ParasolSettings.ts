@@ -4,7 +4,8 @@ import type { ParasolSize } from "./Size"
 export type ParasolSettings = {
     sizes: Array<ParasolSize>
     colors: Array<Color>
-    modelpath: string
-    footsizeMin: number
-    footsizeMax: number
+    parasolModelPath: string
+    footModelPath: string
+    footSizeMin: number
+    footSizeMax: number
 }

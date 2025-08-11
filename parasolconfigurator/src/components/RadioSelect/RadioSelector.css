@@ -3,6 +3,7 @@
     border: 3px solid var(--maincolor);
     border-radius: var(--borderradius);
     flex-grow: 1;
+    margin: 0.5rem 0;
 }
 
 .radio-list button {
