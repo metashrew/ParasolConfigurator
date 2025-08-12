@@ -1,7 +1,6 @@
 .metric-input {
   align-self: stretch;
   display: flex;
-  width: fit-content;
   border: 3px solid var(--maincolor);
   border-radius: 5px;
   overflow: hidden;
